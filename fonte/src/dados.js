@@ -46,13 +46,15 @@ export const exames = [
     titulo: "Citologia",
     subtitulo: "Exame citológico",
     simples:
-      "Avalia células coletadas com agulha fina, raspado ou “carimbo” da lesão, espalhadas em lâminas de vidro. É rápido, pouco invasivo e muitas vezes feito sem anestesia. Ajuda o(a) veterinário(a) a entender se um aumento de volume é inflamação, cisto ou neoplasia e a decidir os próximos passos.",
+      "Avalia células coletadas com agulha fina, raspado ou “carimbo” da lesão, espalhadas em lâminas de vidro. É rápido, pouco invasivo e muitas vezes feito sem anestesia. Ajuda o veterinário a entender se um aumento de volume é inflamação, cisto ou neoplasia e a decidir os próximos passos.",
     tecnico: [
       "Punção aspirativa por agulha fina (PAAF) de nódulos, linfonodos e órgãos",
       "Citologia de pele, otológica, de mucosas e imprint de lesões",
       "Líquidos cavitários, lavados e outros fluidos",
     ],
     prazo: "1 dia útil após a entrada da amostra",
+    paraTutor:
+      "Na maioria das vezes, a coleta é rápida e feita na própria consulta, com uma agulha fina — muitas vezes sem anestesia. O resultado sai em 1 dia útil depois que a amostra chega ao laboratório.",
   },
   {
     id: "histopatologia",
@@ -67,6 +69,13 @@ export const exames = [
       "Fragmentos de órgãos colhidos em necropsia",
     ],
     prazo: "5 a 7 dias úteis após a entrada da amostra",
+    paraTutor:
+      "A amostra é um pedaço do tecido ou a peça retirada na cirurgia. Como mostra a organização das células, costuma dar o diagnóstico definitivo. O resultado sai em 5 a 7 dias úteis; casos que precisam de colorações especiais ou exames complementares podem levar mais tempo.",
+    laudoInforma: [
+      "Diagnóstico histopatológico (tipo da lesão)",
+      "Graduação histológica, quando aplicável",
+      "Avaliação das margens cirúrgicas, quando a peça é enviada para esse fim",
+    ],
   },
   {
     id: "transcirurgica",
@@ -81,6 +90,8 @@ export const exames = [
       "Agendamento prévio com a equipe",
     ],
     prazo: "Resposta durante a cirurgia",
+    paraTutor:
+      "Se o veterinário do seu animal indicar a congelação, nosso patologista acompanha a cirurgia e dá a resposta ali mesmo — por exemplo, se toda a lesão foi retirada. Depois, a peça vai para a histopatologia, que confirma o diagnóstico.",
   },
   {
     id: "necropsia",
@@ -95,6 +106,8 @@ export const exames = [
       "Contato prévio com a equipe para combinar o recebimento",
     ],
     prazo: "15 a 20 dias úteis (inclui a análise microscópica dos órgãos)",
+    paraTutor:
+      "Sabemos que é um momento delicado. A necropsia ajuda a entender a causa do falecimento — principalmente em mortes súbitas ou com suspeita de intoxicação — e pode proteger outros animais da casa. O resultado leva de 15 a 20 dias úteis, porque inclui a análise dos órgãos ao microscópio.",
   },
   {
     id: "complementares",
@@ -114,9 +127,9 @@ export const exames = [
 
 export const passosTutor = [
   {
-    titulo: "O(a) veterinário(a) coleta a amostra",
+    titulo: "O veterinário coleta a amostra",
     texto:
-      "Na consulta ou na cirurgia, o(a) veterinário(a) do seu animal escolhe o exame, coleta o material e preenche a requisição com o histórico clínico.",
+      "Na consulta ou na cirurgia, o veterinário do seu animal escolhe o exame, coleta o material e preenche a requisição com o histórico clínico.",
   },
   {
     titulo: "A amostra chega ao IFVeT",
@@ -131,7 +144,7 @@ export const passosTutor = [
   {
     titulo: "O laudo é liberado",
     texto:
-      "O laudo fica disponível em formato digital, na nossa Área do Cliente. Quem interpreta o resultado e define o tratamento é o(a) médico(a)-veterinário(a) que acompanha o seu animal.",
+      "O laudo fica disponível em formato digital, na nossa Área do Cliente, e o veterinário é avisado assim que ele é liberado.",
   },
 ];
 
@@ -139,12 +152,12 @@ export const quemRecebe = [
   {
     titulo: "Exame pedido por uma clínica ou hospital",
     texto:
-      "O laudo é enviado ao(à) veterinário(a) responsável pelo pedido. Ele(a) conhece o histórico do seu animal e é quem vai interpretar o resultado com você — por isso é a forma mais segura de receber a notícia e já sair com o próximo passo definido.",
+      "O laudo é enviado ao veterinário que pediu o exame. Ele conhece o histórico do seu animal e vai explicar o resultado para você — assim você recebe a notícia e já sai com o próximo passo definido.",
   },
   {
     titulo: "Amostra entregue por você no laboratório (atendimento particular)",
     texto:
-      "Cadastramos seu e-mail no balcão e avisamos quando o laudo estiver pronto. O número do protocolo e o código de acesso vêm no e-mail de aviso (ou pelo WhatsApp). Depois, leve o laudo ao(à) veterinário(a) do seu animal: é ele(a) quem interpreta o resultado e indica o tratamento.",
+      "Cadastramos seu e-mail no balcão e avisamos quando o laudo estiver pronto. O número do protocolo e o código de acesso vêm no e-mail de aviso (ou pelo WhatsApp). Depois, é só levar o laudo na consulta com o veterinário do seu animal.",
   },
 ];
 
@@ -294,7 +307,7 @@ export const glossario = [
       {
         termo: "Grau histológico",
         texto:
-          "Classificação usada em algumas neoplasias para indicar o quanto tendem a ser agressivas. Ajuda o(a) veterinário(a) a planejar o tratamento.",
+          "Classificação usada em algumas neoplasias para indicar o quanto tendem a ser agressivas. Ajuda o veterinário a planejar o tratamento.",
       },
       {
         termo: "Margens cirúrgicas",
@@ -358,7 +371,7 @@ export const perguntas = [
     exames: ["citologia", "histopatologia"],
     pergunta: "Qual a diferença entre citologia e biópsia?",
     resposta:
-      "A citologia avalia células soltas, coletadas geralmente com uma agulha fina — é rápida e pouco invasiva, ótima para triagem. A biópsia (histopatologia) avalia um pedaço do tecido, mostrando como as células estão organizadas; por isso costuma dar o diagnóstico definitivo. O(a) veterinário(a) escolhe o exame mais adequado para cada caso, e às vezes os dois são usados em sequência.",
+      "A citologia avalia células soltas, coletadas geralmente com uma agulha fina — é rápida e pouco invasiva, ótima para triagem. A biópsia (histopatologia) avalia um pedaço do tecido, mostrando como as células estão organizadas; por isso costuma dar o diagnóstico definitivo. O veterinário escolhe o exame mais adequado para cada caso, e às vezes os dois são usados em sequência.",
   },
   {
     grupo: "tutor",
@@ -370,33 +383,33 @@ export const perguntas = [
     grupo: "tutor",
     pergunta: "Como eu acesso o laudo do meu animal?",
     resposta:
-      "Se o exame foi pedido por uma clínica, o laudo vai para o(a) veterinário(a) que fez o pedido, e é com ele(a) que você conversa sobre o resultado. Se você trouxe a amostra diretamente ao IFVeT, avisamos por e-mail quando o laudo estiver pronto; o número do protocolo e o código de acesso vêm nesse e-mail (ou pelo WhatsApp), e você entra na Área do Cliente com eles.",
+      "Se o exame foi pedido por uma clínica, o laudo vai para o veterinário que fez o pedido, e é com ele que você conversa sobre o resultado. Se você trouxe a amostra diretamente ao IFVeT, avisamos por e-mail quando o laudo estiver pronto; o número do protocolo e o código de acesso vêm nesse e-mail (ou pelo WhatsApp), e você entra na Área do Cliente com eles.",
   },
   {
     grupo: "tutor",
     pergunta: "Por que o laudo foi para o veterinário e não para mim?",
     resposta:
-      "Quando o exame é solicitado por uma clínica, o laudo é um documento técnico endereçado ao(à) médico(a)-veterinário(a) responsável pelo caso. Ele(a) conhece o histórico do seu animal e vai explicar o que o resultado significa na prática e qual é o próximo passo.",
+      "Quando o exame é solicitado por uma clínica, o laudo é um documento técnico endereçado ao veterinário responsável pelo caso. Ele conhece o histórico do seu animal e vai explicar o que o resultado significa na prática e qual é o próximo passo.",
   },
   {
     grupo: "tutor",
     exames: ["citologia", "histopatologia"],
     pergunta: "O laudo fala em “neoplasia” ou “tumor”. Isso quer dizer câncer?",
     resposta:
-      "Não necessariamente. “Tumor” quer dizer apenas aumento de volume, que pode ser causado por inflamação, cisto, hiperplasia ou neoplasia. E a neoplasia, por sua vez, pode ser benigna ou maligna. O laudo informa o tipo e, quando se aplica, o grau e as margens cirúrgicas. Quem explica o que isso significa para o seu animal é o(a) veterinário(a) que o acompanha, relacionando o resultado com o exame clínico e o histórico.",
+      "Não necessariamente. “Tumor” quer dizer apenas aumento de volume, que pode ser causado por inflamação, cisto, hiperplasia ou neoplasia. E a neoplasia, por sua vez, pode ser benigna ou maligna. O laudo informa o tipo e, quando se aplica, o grau e as margens cirúrgicas. Quem explica o que isso significa para o seu animal é o veterinário que o acompanha, relacionando o resultado com o exame clínico e o histórico.",
   },
   {
     grupo: "tutor",
     pergunta: "Posso levar a amostra direto ao laboratório?",
     resposta:
-      "Sim. A amostra precisa ter sido coletada por um(a) médico(a)-veterinário(a) e estar acondicionada corretamente. No balcão fazemos o cadastro, informamos o protocolo e registramos seu e-mail para avisar quando o laudo estiver pronto.",
+      "Sim. A amostra precisa ter sido coletada por um veterinário e estar acondicionada corretamente. No balcão fazemos o cadastro, informamos o protocolo e registramos seu e-mail para avisar quando o laudo estiver pronto.",
   },
   {
     grupo: "tutor",
     exames: ["necropsia"],
     pergunta: "Quando a necropsia é indicada?",
     resposta:
-      "Quando se quer entender a causa do falecimento — especialmente em mortes súbitas, suspeita de intoxicação ou de doença que possa afetar outros animais da casa. Sabemos que é um momento delicado. Em geral, o corpo deve ser refrigerado se puder chegar ao laboratório até o dia seguinte, e congelado se o envio for demorar mais. O(a) veterinário(a) do seu animal ou a nossa equipe orientam cada caso.",
+      "Quando se quer entender a causa do falecimento — especialmente em mortes súbitas, suspeita de intoxicação ou de doença que possa afetar outros animais da casa. Sabemos que é um momento delicado. Em geral, o corpo deve ser refrigerado se puder chegar ao laboratório até o dia seguinte, e congelado se o envio for demorar mais. O veterinário do seu animal ou a nossa equipe orientam cada caso.",
   },
   {
     grupo: "ambos",

@@ -1,1 +1,429 @@
-/* Estilos das páginas de exame, da página 404 e ajustes visuais. */
+/* Estilos das páginas de exame, da página 404 e ajustes visuais da página
+   inicial. As regras aqui complementam site.css. */
+
+/* ---------- Página inicial: ajustes ---------- */
+
+.exame-mais {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--roxo);
+}
+.exame-mais svg {
+  transition: transform 0.2s;
+}
+.exame-mais:hover svg {
+  transform: translateX(3px);
+}
+
+/* Endereço ocupa a coluna inteira ao lado da foto da recepção; os horários
+   ficam só na seção de contato, sem repetir. */
+.bento-endereco {
+  grid-row: 1 / 3;
+}
+.bento-horario {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--linha);
+  font-size: 14px;
+}
+.bento-horario svg {
+  color: var(--roxo);
+}
+.bento-horario a {
+  color: var(--roxo);
+  font-weight: 700;
+}
+.bento-principal img {
+  object-position: center 72%;
+}
+
+.equipe-grid {
+  max-width: none;
+}
+
+.secao-noite {
+  background: var(--noite);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.secao-noite:before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  right: -220px;
+  bottom: -320px;
+  background: radial-gradient(circle, rgba(106, 76, 245, 0.4), transparent 65%);
+}
+.secao-noite .container {
+  position: relative;
+}
+.secao-noite .depo {
+  border-color: transparent;
+  color: var(--tinta);
+}
+.secao-noite .nota-google {
+  background: #ffffff12;
+  border-color: #ffffff29;
+}
+.secao-noite .nota-google-num {
+  color: var(--menta);
+}
+.secao-noite .nota-google small {
+  color: #cfc7fa;
+}
+
+/* ---------- Páginas de exame ---------- */
+
+.pagina-topo {
+  position: relative;
+  background: var(--noite);
+  color: #fff;
+  overflow: hidden;
+}
+.pagina-topo-inner {
+  position: relative;
+  padding: 56px 0 72px;
+}
+.migalhas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #b9aff0;
+  margin-bottom: 36px;
+}
+.migalhas a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.migalhas [aria-current] {
+  color: #fff;
+  font-weight: 600;
+}
+.pagina-topo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.pagina-topo-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background: #ffffff14;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--menta);
+}
+.pagina-topo h1 {
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  font-size: clamp(36px, 4.4vw, 58px);
+  line-height: 1.08;
+  margin: 20px 0 18px;
+  max-width: 820px;
+}
+.pagina-topo .hero-lead {
+  max-width: 720px;
+}
+.pagina-prazo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 26px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #5ee6cf1f;
+  border: 1px solid #5ee6cf4d;
+  color: var(--menta);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.pagina-corpo {
+  padding-top: 72px;
+}
+.pagina-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+  align-items: start;
+}
+.bloco {
+  border-radius: var(--raio);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.bloco-tutor {
+  background: var(--lilas);
+  border: 1px solid var(--linha);
+}
+.bloco-vet {
+  background: #fff;
+  border: 1px solid var(--linha);
+  box-shadow: var(--sombra);
+}
+.bloco h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.bloco h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 17px;
+}
+.bloco h3 svg {
+  color: var(--roxo);
+}
+.bloco > p {
+  color: var(--suave);
+}
+.bloco-destaque {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: var(--raio-p);
+  background: #fff;
+  font-size: 15px;
+  font-weight: 600;
+}
+.bloco-destaque svg {
+  color: var(--menta-escura);
+  margin-top: 2px;
+}
+.bloco-duvidas {
+  display: grid;
+  gap: 10px;
+}
+.bloco .link-seta {
+  align-self: flex-start;
+  gap: 8px;
+}
+.bloco-lista {
+  margin: 0;
+  padding-left: 20px;
+  display: grid;
+  gap: 6px;
+  font-size: 15px;
+}
+.bloco-lista li::marker {
+  color: var(--roxo);
+}
+.bloco .lista-check {
+  padding: 0;
+}
+.bloco-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.outros-exames {
+  margin-top: 72px;
+}
+.outros-exames h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: clamp(26px, 2.6vw, 34px);
+  margin-bottom: 24px;
+}
+.outros-exames-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.outro-exame {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 18px;
+  border: 1px solid var(--linha);
+  background: #fff;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+.outro-exame:hover {
+  box-shadow: var(--sombra);
+  border-color: #d6cff5;
+}
+.outro-exame .exame-icone {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+}
+.outro-exame > span:nth-child(2) {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.outro-exame small {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+.outro-exame strong {
+  font-size: 16px;
+  line-height: 1.3;
+}
+.outro-exame > svg {
+  color: var(--roxo);
+}
+
+/* ---------- Página 404 ---------- */
+
+.nao-encontrada {
+  text-align: center;
+}
+.nao-encontrada .container {
+  max-width: 620px;
+}
+.nao-encontrada-codigo {
+  font-family: var(--serif);
+  font-size: clamp(80px, 16vw, 128px);
+  line-height: 1;
+  color: var(--roxo);
+}
+.nao-encontrada h1 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: clamp(28px, 4vw, 38px);
+  margin: 14px 0;
+}
+.nao-encontrada p:not(.nao-encontrada-codigo) {
+  color: var(--suave);
+  font-size: 17px;
+}
+.nao-encontrada-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+/* ---------- Responsivo ---------- */
+
+@media (max-width: 960px) {
+  .bento-endereco {
+    grid-row: auto;
+  }
+  .pagina-grid {
+    grid-template-columns: 1fr;
+  }
+  .outros-exames-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  /* No celular, as três fotos do laboratório ficam lado a lado, em vez de
+     empilhadas, o que encurta bastante a página. */
+  .bento {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .bento-principal,
+  .bento-info {
+    grid-column: 1 / -1;
+  }
+  .bento-foto:not(.bento-principal),
+  .bento-foto:last-child {
+    grid-column: auto;
+    aspect-ratio: 3 / 4;
+  }
+  .bento-foto:not(.bento-principal) figcaption {
+    display: none;
+  }
+  .pagina-topo-inner {
+    padding: 36px 0 56px;
+  }
+  .migalhas {
+    margin-bottom: 26px;
+  }
+  .bloco {
+    padding: 24px;
+  }
+  .bloco-acoes .botao {
+    width: 100%;
+  }
+  .nao-encontrada-acoes .botao {
+    width: 100%;
+  }
+}
+
+/* Glossário: cada grupo abre com um toque, para a página não ficar longa. */
+.glossario-grupos {
+  gap: 12px;
+}
+.glossario-grupo {
+  display: block;
+}
+.glossario-grupo > summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: 16px;
+  row-gap: 4px;
+  padding: 22px 26px;
+}
+.glossario-grupo summary h3 {
+  padding-top: 0;
+  font-size: 23px;
+}
+.glossario-grupo summary small {
+  grid-column: 1;
+  color: var(--suave);
+  font-size: 14px;
+  font-weight: 500;
+}
+.glossario-grupo summary .sanfona-seta {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+.glossario-grupo dl {
+  padding: 0 26px 26px;
+}
+.glossario-grupo dl > div {
+  background: var(--lilas);
+  border-color: transparent;
+}
+@media (max-width: 700px) {
+  .glossario-grupo > summary {
+    padding: 18px 20px;
+  }
+  .glossario-grupo summary h3 {
+    font-size: 20px;
+  }
+  .glossario-grupo dl {
+    padding: 0 16px 16px;
+  }
+  .portal-demo {
+    display: none;
+  }
+}

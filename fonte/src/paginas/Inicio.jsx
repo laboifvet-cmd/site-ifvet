@@ -45,6 +45,7 @@ import {
   prazos,
   quemRecebe,
 } from "../dados.js";
+import { paginasExame } from "../rotas.js";
 
 function Hero() {
   return (
@@ -60,10 +61,9 @@ function Hero() {
             <em>cuida</em>.
           </h1>
           <p className="hero-lead">
-            Analisamos as amostras coletadas pelo(a) médico(a)-veterinário(a) —
-            citologias, biópsias, congelações e necropsias — e entregamos um
-            laudo claro, que apoia a escolha do melhor tratamento para cada
-            animal.
+            Analisamos as amostras que o veterinário coleta do seu animal — em
+            citologias, biópsias e necropsias — e entregamos um laudo claro,
+            que ajuda a escolher o melhor tratamento.
           </p>
           <p className="hero-pergunta">Como podemos ajudar você?</p>
           <div className="hero-caminhos">
@@ -72,8 +72,8 @@ function Hero() {
                 <PawPrint size={22} aria-hidden="true" />
               </span>
               <span className="caminho-texto">
-                <small>Sou</small>
-                <strong>Tutor(a)</strong>
+                <small>Informações para</small>
+                <strong>Tutores</strong>
               </span>
               <ArrowRight size={20} className="caminho-seta" aria-hidden="true" />
             </a>
@@ -82,8 +82,8 @@ function Hero() {
                 <Stethoscope size={22} aria-hidden="true" />
               </span>
               <span className="caminho-texto">
-                <small>Sou</small>
-                <strong>Médico(a)-veterinário(a)</strong>
+                <small>Informações para</small>
+                <strong>Veterinários</strong>
               </span>
               <ArrowRight size={20} className="caminho-seta" aria-hidden="true" />
             </a>
@@ -164,13 +164,14 @@ function Exames() {
             titulo="O que cada exame faz, em palavras simples."
           />
           <p>
-            Cada card traz uma explicação geral sobre o exame e, logo abaixo, as
-            informações práticas para o(a) médico(a)-veterinário(a).
+            Cada card traz uma explicação simples sobre o exame e, logo abaixo,
+            as informações práticas para o veterinário.
           </p>
         </div>
         <div className="exames-grid">
           {exames.map((exame) => {
             const Icone = icones[exame.icone];
+            const pagina = paginasExame.find((p) => p.exame === exame.id);
             return (
               <article
                 key={exame.id}
@@ -205,6 +206,12 @@ function Exames() {
                 <p className="exame-prazo">
                   <Clock size={16} aria-hidden="true" /> <span>{exame.prazo}</span>
                 </p>
+                {pagina && (
+                  <a href={pagina.caminho} className="exame-mais">
+                    Saiba mais sobre {exame.titulo.toLowerCase()}{" "}
+                    <ArrowRight size={16} aria-hidden="true" />
+                  </a>
+                )}
               </article>
             );
           })}
@@ -264,8 +271,8 @@ function Tutores() {
             <p>
               <ShieldCheck size={18} aria-hidden="true" />
               <span>
-                Quem interpreta o resultado e define o tratamento é o(a)
-                médico(a)-veterinário(a) que acompanha o seu animal.
+                Quem interpreta o resultado e define o tratamento é o
+                veterinário que acompanha o seu animal.
               </span>
             </p>
             <a href="#glossario" className="botao botao-contorno">
@@ -341,8 +348,8 @@ function Veterinarios() {
             </p>
           </div>
           <div className="envio-lista">
-            {envio.map((grupo, i) => (
-              <GrupoEnvio key={grupo.titulo} grupo={grupo} aberto={i === 0} />
+            {envio.map((grupo) => (
+              <GrupoEnvio key={grupo.titulo} grupo={grupo} />
             ))}
           </div>
         </div>
@@ -396,7 +403,7 @@ function AreaCliente() {
                 <PawPrint size={20} aria-hidden="true" />
               </span>
               <div>
-                <h3>Tutor(a) — atendimento particular</h3>
+                <h3>Tutores — atendimento particular</h3>
                 <p>
                   Entre com o <strong>número do protocolo</strong> e o{" "}
                   <strong>código de acesso de 6 caracteres</strong>, enviados no
@@ -409,7 +416,7 @@ function AreaCliente() {
                 <Building2 size={20} aria-hidden="true" />
               </span>
               <div>
-                <h3>Clínica ou veterinário(a)</h3>
+                <h3>Clínicas e veterinários</h3>
                 <p>
                   Entre com <strong>e-mail e senha</strong> e veja todos os casos
                   enviados, o status e a previsão de liberação.
@@ -511,13 +518,17 @@ function Glossario() {
         <TituloSecao
           sobre="Glossário"
           titulo="Termos que costumam aparecer nos laudos."
-          texto="Um pequeno glossário para ajudar tutores a acompanhar a conversa com o(a) veterinário(a). Ele explica palavras; não substitui a interpretação do caso."
+          texto="Um pequeno glossário para ajudar você a entender o laudo e a conversa com o veterinário. Ele explica palavras; não substitui a avaliação do caso."
         />
         <Arvore />
         <div className="glossario-grupos">
           {glossario.map((grupo) => (
-            <div key={grupo.grupo} className="glossario-grupo">
-              <h3>{grupo.grupo}</h3>
+            <details key={grupo.grupo} className="sanfona glossario-grupo">
+              <summary>
+                <h3>{grupo.grupo}</h3>
+                <small>{grupo.itens.map((item) => item.termo).join(" · ")}</small>
+                <ChevronDown size={20} className="sanfona-seta" aria-hidden="true" />
+              </summary>
               <dl>
                 {grupo.itens.map((item) => (
                   <div key={item.termo}>
@@ -526,17 +537,9 @@ function Glossario() {
                   </div>
                 ))}
               </dl>
-            </div>
+            </details>
           ))}
         </div>
-        <p className="nota">
-          <ShieldCheck size={18} aria-hidden="true" />
-          <span>
-            Cada caso é único. A interpretação do laudo, junto com o exame
-            físico, o histórico e outros exames, é feita pelo(a)
-            médico(a)-veterinário(a) clínico(a) que acompanha o seu animal.
-          </span>
-        </p>
       </div>
     </section>
   );
@@ -591,25 +594,17 @@ function Laboratorio() {
             />
             <figcaption>Recepção do IFVeT</figcaption>
           </figure>
-          <div className="bento-info">
+          <div className="bento-info bento-endereco">
             <MapPin size={22} aria-hidden="true" />
             <h3>Endereço</h3>
             <p>{contato.endereco}</p>
             <LinkExterno href={contato.mapa} className="link-seta">
               Abrir no Google Maps <ArrowUpRight size={16} aria-hidden="true" />
             </LinkExterno>
-          </div>
-          <div className="bento-info">
-            <Clock size={22} aria-hidden="true" />
-            <h3>Horário de atendimento</h3>
-            <div className="horarios">
-              {contato.horario.map((h) => (
-                <p key={h.dias} className="horario-linha">
-                  <span>{h.dias}</span>
-                  <span>{h.horas}</span>
-                </p>
-              ))}
-            </div>
+            <p className="bento-horario">
+              <Clock size={16} aria-hidden="true" /> Aberto de segunda a sábado.{" "}
+              <a href="#contato">Ver horários</a>
+            </p>
           </div>
           {fotos.map((foto) => (
             <figure key={foto.src} className="bento-foto">
@@ -670,10 +665,11 @@ function Equipe() {
 
 function Depoimentos() {
   return (
-    <section className="secao" aria-labelledby="titulo-depoimentos">
+    <section className="secao secao-noite" aria-labelledby="titulo-depoimentos">
       <div className="container">
         <div className="cabeca-dupla">
           <TituloSecao
+            claro
             id="titulo-depoimentos"
             sobre="Quem confia no IFVeT"
             titulo="Confiança construída em cada parceria."
@@ -724,8 +720,8 @@ function Duvidas() {
   const [filtro, setFiltro] = useState("todas");
   const filtros = [
     { id: "todas", label: "Todas" },
-    { id: "tutor", label: "Sou tutor(a)" },
-    { id: "vet", label: "Sou veterinário(a)" },
+    { id: "tutor", label: "Para tutores" },
+    { id: "vet", label: "Para veterinários" },
   ];
   const visiveis = perguntas.filter(
     (p) => filtro === "todas" || p.grupo === filtro || p.grupo === "ambos",
