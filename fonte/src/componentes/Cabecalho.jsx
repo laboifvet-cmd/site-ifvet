@@ -57,11 +57,11 @@ export default function Cabecalho({ base = "" }) {
             className="marca"
             href={base ? "/" : "#inicio"}
             onClick={fechar}
-            aria-label="IFVeT Patologia Diagnóstica — início"
+            aria-label="IFVET Patologia Diagnóstica — início"
           >
             <img
               src="/assets/ifvet-logo-purple.webp"
-              alt="IFVeT Patologia Diagnóstica"
+              alt="IFVET Patologia Diagnóstica"
               width="520"
               height="183"
             />

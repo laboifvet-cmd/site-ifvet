@@ -1,4 +1,4 @@
-# Site do IFVeT Patologia Diagnóstica
+# Site do IFVET Patologia Diagnóstica
 
 Site publicado em **https://www.ifvet.com.br** pelo GitHub Pages.
 

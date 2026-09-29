@@ -3,7 +3,7 @@
 
 export const contato = {
   whatsapp:
-    "https://wa.me/5585991832120?text=Ol%C3%A1%2C%20IFVeT!%20Vim%20pelo%20site.",
+    "https://wa.me/5585991832120?text=Ol%C3%A1%2C%20IFVET!%20Vim%20pelo%20site.",
   telefone: "(85) 99183-2120",
   telefoneLink: "tel:+5585991832120",
   email: "labo.ifvet@gmail.com",
@@ -137,7 +137,7 @@ export const passosTutor = [
       "Na consulta ou na cirurgia, o veterinário do seu animal escolhe o exame, coleta o material e preenche a requisição com o histórico clínico.",
   },
   {
-    titulo: "A amostra chega ao IFVeT",
+    titulo: "A amostra chega ao IFVET",
     texto:
       "Buscamos na clínica pelo nosso serviço volante (Fortaleza e Região Metropolitana) ou recebemos no laboratório. Cada caso recebe um número de protocolo, que identifica o exame do começo ao fim.",
   },
@@ -330,9 +330,9 @@ export const glossario = [
           "Usadas quando os achados apontam fortemente para um diagnóstico, mas a confirmação pode depender de outro exame. São comuns na citologia.",
       },
       {
-        termo: "Amostra não diagnóstica",
+        termo: "Amostra não diagnóstica (“inconclusivo”)",
         texto:
-          "Quando o material não tem células suficientes ou representativas para concluir. Não é um erro — acontece — e pode ser preciso repetir a coleta.",
+          "Quando o material não tem células suficientes ou representativas para concluir, o resultado costuma vir como “inconclusivo”. Não é um erro — acontece — e pode ser preciso repetir a coleta.",
       },
     ],
   },
@@ -388,7 +388,7 @@ export const perguntas = [
     grupo: "tutor",
     pergunta: "Como eu acesso o laudo do meu animal?",
     resposta:
-      "Se o exame foi pedido por uma clínica, o laudo vai para o veterinário que fez o pedido, e é com ele que você conversa sobre o resultado. Se você trouxe a amostra diretamente ao IFVeT, avisamos por e-mail quando o laudo estiver pronto; o número do protocolo e o código de acesso vêm nesse e-mail (ou pelo WhatsApp), e você entra na Área do Cliente com eles.",
+      "Se o exame foi pedido por uma clínica, o laudo vai para o veterinário que fez o pedido, e é com ele que você conversa sobre o resultado. Se você trouxe a amostra diretamente ao IFVET, avisamos por e-mail quando o laudo estiver pronto; o número do protocolo e o código de acesso vêm nesse e-mail (ou pelo WhatsApp), e você entra na Área do Cliente com eles.",
   },
   {
     grupo: "tutor",
@@ -418,9 +418,9 @@ export const perguntas = [
   },
   {
     grupo: "ambos",
-    pergunta: "O IFVeT faz hemograma e exames de sangue?",
+    pergunta: "O IFVET faz hemograma e exames de sangue?",
     resposta:
-      "Não. O IFVeT é especializado em anatomia patológica: citologia, histopatologia e necropsia. Hemograma, bioquímicos e outros exames de patologia clínica são feitos por laboratórios de análises clínicas. Se já houver exames de sangue, vale enviá-los junto com a requisição — eles ajudam na interpretação do caso.",
+      "Não. O IFVET é especializado em anatomia patológica: citologia, histopatologia e necropsia. Hemograma, bioquímicos e outros exames de patologia clínica são feitos por laboratórios de análises clínicas. Se já houver exames de sangue, vale enviá-los junto com a requisição — eles ajudam na interpretação do caso.",
   },
   {
     grupo: "vet",
