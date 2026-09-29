@@ -1,0 +1,14 @@
+{
+  "name": "IFVeT Patologia Diagnóstica",
+  "short_name": "IFVeT",
+  "description": "Laboratório de patologia veterinária em Fortaleza-CE: citologia, histopatologia, biópsia transcirúrgica e necropsia.",
+  "lang": "pt-BR",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#ffffff",
+  "theme_color": "#3C14E4",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" }
+  ]
+}

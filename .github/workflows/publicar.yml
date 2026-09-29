@@ -1,0 +1,48 @@
+# Gera o site a partir de fonte/ e publica na raiz do repositório sempre que
+# algo em fonte/ muda no branch main. O GitHub Pages publica a raiz.
+name: Publicar site
+
+on:
+  push:
+    branches: [main]
+    paths: ["fonte/**", ".github/workflows/publicar.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publicar-site
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: fonte/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: fonte
+        run: npm ci
+
+      - name: Gerar o site e copiar para a raiz
+        working-directory: fonte
+        run: npm run publicar
+
+      - name: Salvar o site gerado
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nada mudou no site gerado."
+          else
+            git commit -m "Publica o site (gerado automaticamente a partir de fonte/)"
+            git push
+          fi
