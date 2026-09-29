@@ -29,7 +29,7 @@ export const google = { nota: "4,9", avaliacoes: 57 };
 // Google Analytics 4. Cole aqui o "ID da métrica" (começa com G-), que fica
 // em Analytics → Administrador → Fluxos de dados → Web. Enquanto estiver vazio,
 // nada é carregado. O visitante só é contado se aceitar no aviso de cookies.
-export const analytics = { idGoogle: "" };
+export const analytics = { idGoogle: "G-33BNMT7Z0S" };
 
 export const links = {
   laudos: "https://laudos.ifvet.com.br",
