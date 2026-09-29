@@ -51,6 +51,7 @@ export default function Rodape({ base = "" }) {
             IFVET Patologia Diagnóstica · {contato.cidade}
           </span>
           <span>{contato.responsavelTecnico}</span>
+          <a href="/privacidade/">Política de privacidade</a>
           {analytics.idGoogle && (
             <button
               type="button"

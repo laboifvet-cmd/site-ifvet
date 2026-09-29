@@ -71,7 +71,8 @@ export default function Estatisticas() {
     <div className="aviso-cookies" role="region" aria-label="Aviso de cookies">
       <p>
         Usamos cookies do Google Analytics só para contar as visitas e melhorar
-        o site. Nada é usado para publicidade.
+        o site. Nada é usado para publicidade.{" "}
+        <a href="/privacidade/">Saiba mais</a>
       </p>
       <div className="aviso-cookies-botoes">
         <button

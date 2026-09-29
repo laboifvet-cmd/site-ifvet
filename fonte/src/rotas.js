@@ -43,9 +43,12 @@ export const paginasExame = [
   },
 ];
 
+export const CAMINHO_PRIVACIDADE = "/privacidade/";
+
 export const rotasParaGerar = [
   "/",
   ...paginasExame.map((p) => p.caminho),
+  CAMINHO_PRIVACIDADE,
   "/404",
 ];
 
@@ -185,6 +188,14 @@ export function cabecaDaPagina(caminho) {
           laboratorio,
         ],
       },
+    });
+  }
+  if (caminho === CAMINHO_PRIVACIDADE) {
+    return montar({
+      titulo: "Política de privacidade | IFVET Patologia Diagnóstica",
+      descricao:
+        "Como o IFVET Patologia Diagnóstica usa e protege os dados de tutores, clínicas e visitantes do site, conforme a LGPD.",
+      url: `${SITE}${CAMINHO_PRIVACIDADE}`,
     });
   }
   return montar({
