@@ -11,7 +11,7 @@ export default function Rodape({ base = "" }) {
           <div className="rodape-marca">
             <img
               src="/assets/ifvet-logo-white.webp"
-              alt="IFVeT Patologia Diagnóstica"
+              alt="IFVET Patologia Diagnóstica"
               width="520"
               height="109"
               loading="lazy"
@@ -48,7 +48,7 @@ export default function Rodape({ base = "" }) {
         <div className="rodape-base">
           <span>
             © <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
-            IFVeT Patologia Diagnóstica · {contato.cidade}
+            IFVET Patologia Diagnóstica · {contato.cidade}
           </span>
           <span>{contato.responsavelTecnico}</span>
           {analytics.idGoogle && (
@@ -71,7 +71,7 @@ export function WhatsFlutuante() {
     <LinkExterno
       href={contato.whatsapp}
       className="whats-flutuante"
-      aria-label="Falar com o IFVeT pelo WhatsApp"
+      aria-label="Falar com o IFVET pelo WhatsApp"
     >
       <MessageCircle size={26} aria-hidden="true" />
     </LinkExterno>

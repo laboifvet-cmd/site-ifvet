@@ -219,7 +219,7 @@ function Exames() {
         <p className="nota">
           <Info size={18} aria-hidden="true" />
           <span>
-            O IFVeT é especializado em <strong>anatomia patológica</strong>. Não
+            O IFVET é especializado em <strong>anatomia patológica</strong>. Não
             realizamos hemograma nem exames de sangue, mas eles ajudam muito na
             interpretação: vale enviá-los junto com a requisição.
           </span>
@@ -237,7 +237,7 @@ function Tutores() {
         <TituloSecao
           sobre="Para tutores"
           titulo="Da coleta ao laudo: como funciona."
-          texto="Seu veterinário pediu um exame e a amostra veio para o IFVeT? Veja o caminho que ela percorre até virar um laudo."
+          texto="Seu veterinário pediu um exame e a amostra veio para o IFVET? Veja o caminho que ela percorre até virar um laudo."
         />
         <ol className="linha-tempo">
           {passosTutor.map((passo, i) => (
@@ -587,12 +587,12 @@ function Laboratorio() {
           <figure className="bento-foto bento-principal">
             <img
               src="/assets/recepcao.webp"
-              alt="Recepção do IFVeT, com balcão branco, paredes em azul e o logotipo do laboratório"
+              alt="Recepção do IFVET, com balcão branco, paredes em azul e o logotipo do laboratório"
               width="1400"
               height="1050"
               loading="lazy"
             />
-            <figcaption>Recepção do IFVeT</figcaption>
+            <figcaption>Recepção do IFVET</figcaption>
           </figure>
           <div className="bento-info bento-endereco">
             <MapPin size={22} aria-hidden="true" />
@@ -671,7 +671,7 @@ function Depoimentos() {
           <TituloSecao
             claro
             id="titulo-depoimentos"
-            sobre="Quem confia no IFVeT"
+            sobre="Quem confia no IFVET"
             titulo="Confiança construída em cada parceria."
           />
           <div className="nota-google">

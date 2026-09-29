@@ -11,7 +11,7 @@ export const paginasExame = [
     caminho: "/citologia-veterinaria/",
     exame: "citologia",
     titulo: "Citologia veterinária em Fortaleza",
-    tituloSeo: "Citologia veterinária em Fortaleza | IFVeT Patologia Diagnóstica",
+    tituloSeo: "Citologia veterinária em Fortaleza | IFVET Patologia Diagnóstica",
     descricao:
       "Citologia veterinária em Fortaleza-CE: PAAF de nódulos e linfonodos, citologia de pele, otológica e de líquidos. Laudo em 1 dia útil, com orientações de envio para clínicas.",
   },
@@ -20,7 +20,7 @@ export const paginasExame = [
     exame: "histopatologia",
     titulo: "Histopatologia veterinária em Fortaleza",
     tituloSeo:
-      "Histopatologia e biópsia veterinária em Fortaleza | IFVeT Patologia Diagnóstica",
+      "Histopatologia e biópsia veterinária em Fortaleza | IFVET Patologia Diagnóstica",
     descricao:
       "Histopatologia veterinária (biópsias e peças cirúrgicas) em Fortaleza-CE, com avaliação de margens e graduação histológica. Laudo em 5 a 7 dias úteis.",
   },
@@ -29,7 +29,7 @@ export const paginasExame = [
     exame: "transcirurgica",
     titulo: "Biópsia transcirúrgica (congelação) em Fortaleza",
     tituloSeo:
-      "Biópsia transcirúrgica (congelação) veterinária em Fortaleza | IFVeT",
+      "Biópsia transcirúrgica (congelação) veterinária em Fortaleza | IFVET",
     descricao:
       "Biópsia por congelação feita no centro cirúrgico, junto com o cirurgião: avaliação intraoperatória de margens e da natureza da lesão, com resposta durante a cirurgia. Fortaleza-CE.",
   },
@@ -37,7 +37,7 @@ export const paginasExame = [
     caminho: "/necropsia-veterinaria/",
     exame: "necropsia",
     titulo: "Necropsia veterinária em Fortaleza",
-    tituloSeo: "Necropsia veterinária em Fortaleza | IFVeT Patologia Diagnóstica",
+    tituloSeo: "Necropsia veterinária em Fortaleza | IFVET Patologia Diagnóstica",
     descricao:
       "Necropsia veterinária em Fortaleza-CE para determinar a causa da morte, com análise microscópica dos órgãos. Veja como conservar e enviar o corpo.",
   },
@@ -51,10 +51,10 @@ export const rotasParaGerar = [
 
 const inicio = {
   tituloSeo:
-    "IFVeT Patologia Diagnóstica | Citologia, histopatologia e necropsia veterinária em Fortaleza",
+    "IFVET Patologia Diagnóstica | Citologia, histopatologia e necropsia veterinária em Fortaleza",
   descricao:
     "Laboratório de patologia veterinária em Fortaleza-CE. Citologia, histopatologia (biópsias), biópsia transcirúrgica (congelação) e necropsia, com laudo digital para clínicas e tutores. Rua Professor Raimundo Vítor, 80 – Parquelândia.",
-  ogTitulo: "IFVeT | Patologia Diagnóstica Veterinária em Fortaleza",
+  ogTitulo: "IFVET | Patologia Diagnóstica Veterinária em Fortaleza",
   ogDescricao:
     "Citologia, histopatologia e necropsia com laudo digital. Clareza para quem trata e para quem cuida.",
 };
@@ -62,7 +62,7 @@ const inicio = {
 const laboratorio = {
   "@type": "VeterinaryCare",
   "@id": `${SITE}/#laboratorio`,
-  name: "IFVeT Patologia Diagnóstica",
+  name: "IFVET Patologia Diagnóstica",
   description:
     "Laboratório de patologia veterinária: citologia, histopatologia, biópsia transcirúrgica (congelação) e necropsia.",
   url: `${SITE}/`,
@@ -188,8 +188,8 @@ export function cabecaDaPagina(caminho) {
     });
   }
   return montar({
-    titulo: "Página não encontrada | IFVeT Patologia Diagnóstica",
-    descricao: "O endereço acessado não existe no site do IFVeT Patologia Diagnóstica.",
+    titulo: "Página não encontrada | IFVET Patologia Diagnóstica",
+    descricao: "O endereço acessado não existe no site do IFVET Patologia Diagnóstica.",
     url: `${SITE}/`,
     indexar: false,
   });
