@@ -26,6 +26,11 @@ export const contato = {
 // Atualize de vez em quando com os números do perfil no Google.
 export const google = { nota: "4,9", avaliacoes: 57 };
 
+// Google Analytics 4. Cole aqui o "ID da métrica" (começa com G-), que fica
+// em Analytics → Administrador → Fluxos de dados → Web. Enquanto estiver vazio,
+// nada é carregado. O visitante só é contado se aceitar no aviso de cookies.
+export const analytics = { idGoogle: "" };
+
 export const links = {
   laudos: "https://laudos.ifvet.com.br",
   requisicao:
@@ -188,7 +193,7 @@ export const passosVet = [
   {
     titulo: "Discuta o caso com o patologista",
     texto:
-      "Ficou alguma dúvida sobre o laudo ou sobre a conduta? Nossa equipe está disponível para conversar sobre o caso.",
+      "Ficou alguma dúvida sobre o laudo ou sobre a conduta? Nossa equipe está disponível para conversar sobre o caso. Também fazemos segunda opinião e revisão de casos.",
   },
 ];
 
@@ -337,7 +342,7 @@ export const equipe = [
   {
     nome: "Fábio Ranyeri",
     cargo: "Médico-veterinário patologista",
-    bio: "Graduado pela UECE e residente em Anatomia Patológica Veterinária pela UnB. Atua em diagnóstico citológico, histopatológico e necroscópico.",
+    bio: "Graduado pela UECE e residente em Anatomia Patológica Veterinária pela UnB. Atua em diagnóstico citológico, histopatológico e necroscópico. CRMV-CE 3117.",
     foto: "/assets/equipe-fabio.webp",
   },
   {
@@ -429,6 +434,13 @@ export const perguntas = [
     pergunta: "Como agendar uma biópsia transcirúrgica (congelação)?",
     resposta:
       "Fale com a gente pelo WhatsApp com antecedência, informando data, horário e endereço da cirurgia e o que precisa ser avaliado (margens, natureza da lesão). Nosso patologista vai até o centro cirúrgico e faz o exame no local, junto com o cirurgião — não é preciso enviar amostra. Depois, a peça segue em formol para a histopatologia de rotina.",
+  },
+  {
+    grupo: "vet",
+    exames: ["citologia", "histopatologia"],
+    pergunta: "Vocês fazem segunda opinião e revisão de casos?",
+    resposta:
+      "Sim. Revisamos casos já diagnosticados, inclusive por outros laboratórios, quando se quer uma segunda opinião. Fale com a gente pelo WhatsApp para combinar o envio do material (como lâminas e blocos) e das informações clínicas do caso.",
   },
   {
     grupo: "vet",

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import Cabecalho from "./Cabecalho.jsx";
 import Rodape, { WhatsFlutuante } from "./Rodape.jsx";
+import Estatisticas from "./Estatisticas.jsx";
 
 // Anima a entrada dos elementos com a classe "revelar" quando aparecem na tela.
 function useRevelar() {
@@ -42,6 +43,7 @@ export default function Layout({ base = "", children }) {
       <main id="conteudo">{children}</main>
       <Rodape base={base} />
       <WhatsFlutuante />
+      <Estatisticas />
     </>
   );
 }

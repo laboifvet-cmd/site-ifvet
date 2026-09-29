@@ -1,6 +1,7 @@
 import { MessageCircle } from "lucide-react";
-import { contato, links, menu } from "../dados.js";
+import { analytics, contato, links, menu } from "../dados.js";
 import { LinkExterno } from "./comum.jsx";
+import { reabrirAvisoCookies } from "./Estatisticas.jsx";
 
 export default function Rodape({ base = "" }) {
   return (
@@ -50,6 +51,15 @@ export default function Rodape({ base = "" }) {
             IFVeT Patologia Diagnóstica · {contato.cidade}
           </span>
           <span>{contato.responsavelTecnico}</span>
+          {analytics.idGoogle && (
+            <button
+              type="button"
+              className="rodape-cookies"
+              onClick={reabrirAvisoCookies}
+            >
+              Preferências de cookies
+            </button>
+          )}
         </div>
       </div>
     </footer>
