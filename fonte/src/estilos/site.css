@@ -1113,6 +1113,25 @@ svg {
   color: #e2dcff;
   font-size: 15px;
 }
+.acesso-cadastro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--menta);
+}
+.acesso-cadastro svg {
+  transition: transform 0.2s;
+}
+.acesso-cadastro:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.acesso-cadastro:hover svg {
+  transform: translateX(3px);
+}
 .area-acoes {
   margin-top: 28px;
 }

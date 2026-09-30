@@ -5,7 +5,7 @@ import { reabrirAvisoCookies } from "../componentes/Estatisticas.jsx";
 import { analytics, contato } from "../dados.js";
 
 // Data da última revisão do texto. Atualize sempre que mudar a política.
-export const PRIVACIDADE_ATUALIZADA_EM = "29 de setembro de 2026";
+export const PRIVACIDADE_ATUALIZADA_EM = "30 de setembro de 2026";
 
 export default function Privacidade() {
   return (
@@ -59,6 +59,13 @@ export default function Privacidade() {
               clínicas e o número do protocolo e o código de acesso dos tutores.
               As senhas são guardadas de forma cifrada (hash) e ninguém da
               equipe consegue lê-las.
+            </li>
+            <li>
+              <strong>No cadastro da clínica pela Área do Cliente:</strong>{" "}
+              nome da clínica ou do veterinário, CPF ou CNPJ, razão social,
+              endereço, telefone e e-mail e, se informados, nome e CRMV do
+              responsável técnico. Usamos esses dados para criar o acesso,
+              falar com a clínica e emitir nota fiscal.
             </li>
             <li>
               <strong>Quando você fala com a gente</strong> por WhatsApp, e-mail

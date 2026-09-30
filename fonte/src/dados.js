@@ -35,6 +35,9 @@ export const links = {
   laudos: "https://laudos.ifvet.com.br",
   requisicao:
     "https://script.google.com/macros/s/AKfycbwCLe6E83fomH92sGQQ7DHFq5H03W4XMOqF5T8eUY30ODW3vuZ3wbP_bzHtdpmLnvjLbQ/exec?f=requisicao",
+  // Abre a Área do Cliente direto no cadastro da clínica.
+  cadastro:
+    "https://script.google.com/macros/s/AKfycbwCLe6E83fomH92sGQQ7DHFq5H03W4XMOqF5T8eUY30ODW3vuZ3wbP_bzHtdpmLnvjLbQ/exec?cadastro=1",
 };
 
 export const prazos = [
@@ -452,7 +455,7 @@ export const perguntas = [
     grupo: "vet",
     pergunta: "Como a clínica acessa os laudos?",
     resposta:
-      "Cada clínica tem um login (e-mail e senha) na Área do Cliente. Lá aparecem todos os casos enviados, com status, previsão de liberação e o PDF do laudo assim que ele é liberado. Ainda não tem acesso? Solicite pelo WhatsApp ou e-mail.",
+      "Cada clínica tem um login (e-mail e senha) na Área do Cliente. Lá aparecem todos os casos enviados, com status, previsão de liberação e o PDF do laudo assim que ele é liberado. Ainda não tem acesso? A própria clínica se cadastra na Área do Cliente, em “Cadastre sua clínica”: informa CPF ou CNPJ, endereço e telefone, confirma o e-mail com um código e escolhe a senha.",
   },
   {
     grupo: "vet",
