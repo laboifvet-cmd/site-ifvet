@@ -31,13 +31,14 @@ export const google = { nota: "4,9", avaliacoes: 57 };
 // nada é carregado. O visitante só é contado se aceitar no aviso de cookies.
 export const analytics = { idGoogle: "G-33BNMT7Z0S" };
 
+// Tudo passa pela ponte laudos.ifvet.com.br (repositório "laudos"), que
+// repassa para o Apps Script. Se o endereço do Apps Script mudar, a troca é
+// só na ponte e no sistema; o site não precisa ser publicado de novo.
 export const links = {
   laudos: "https://laudos.ifvet.com.br",
-  requisicao:
-    "https://script.google.com/macros/s/AKfycbwCLe6E83fomH92sGQQ7DHFq5H03W4XMOqF5T8eUY30ODW3vuZ3wbP_bzHtdpmLnvjLbQ/exec?f=requisicao",
+  requisicao: "https://laudos.ifvet.com.br/?f=requisicao",
   // Abre a Área do Cliente direto no cadastro da clínica.
-  cadastro:
-    "https://script.google.com/macros/s/AKfycbwCLe6E83fomH92sGQQ7DHFq5H03W4XMOqF5T8eUY30ODW3vuZ3wbP_bzHtdpmLnvjLbQ/exec?cadastro=1",
+  cadastro: "https://laudos.ifvet.com.br/?cadastro=1",
 };
 
 export const prazos = [
