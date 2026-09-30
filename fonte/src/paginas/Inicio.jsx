@@ -421,6 +421,10 @@ function AreaCliente() {
                   Entre com <strong>e-mail e senha</strong> e veja todos os casos
                   enviados, o status e a previsão de liberação.
                 </p>
+                <LinkExterno href={links.cadastro} className="acesso-cadastro">
+                  Ainda não tem acesso? Cadastre sua clínica
+                  <ArrowRight size={16} aria-hidden="true" />
+                </LinkExterno>
               </div>
             </div>
           </div>
