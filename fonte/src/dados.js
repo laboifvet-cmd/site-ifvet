@@ -35,7 +35,10 @@ export const analytics = { idGoogle: "G-33BNMT7Z0S" };
 // repassa para o Apps Script. Se o endereço do Apps Script mudar, a troca é
 // só na ponte e no sistema; o site não precisa ser publicado de novo.
 export const links = {
-  laudos: "https://laudos.ifvet.com.br",
+  // O "?entrar=1" leva direto à tela de entrada. Sem ele, laudos.ifvet.com.br
+  // mostra a página do laboratório (endereço, contatos, responsável técnico),
+  // que é o que os filtros de segurança das empresas leem para classificar o site.
+  laudos: "https://laudos.ifvet.com.br/?entrar=1",
   requisicao: "https://laudos.ifvet.com.br/?f=requisicao",
   // Abre a Área do Cliente direto no cadastro da clínica.
   cadastro: "https://laudos.ifvet.com.br/?cadastro=1",
