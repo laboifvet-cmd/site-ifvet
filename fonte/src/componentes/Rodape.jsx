@@ -47,7 +47,7 @@ export default function Rodape({ base = "" }) {
         </div>
         <div className="rodape-base">
           <span>
-            © <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
+            © {new Date().getFullYear()}{" "}
             IFVET Patologia Diagnóstica · {contato.cidade}
           </span>
           <span>{contato.responsavelTecnico}</span>

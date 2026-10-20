@@ -13,5 +13,7 @@ const app = (
   </StrictMode>
 );
 
-if (raiz.hasChildNodes()) hydrateRoot(raiz, app);
+// Com o HTML pré-gerado, só "liga" o que já está na página; em
+// desenvolvimento o #root tem apenas um comentário, então renderiza do zero.
+if (raiz.firstElementChild) hydrateRoot(raiz, app);
 else createRoot(raiz).render(app);
