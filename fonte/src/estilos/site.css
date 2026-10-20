@@ -56,9 +56,15 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* Sem borda, fundo e espaçamento do navegador: cada botão (.botao, .filtros,
+   .menu-botao…) define os seus. Sem isso, um <button class="botao"> aparecia
+   com a borda cinza-escura padrão. */
 button {
   font: inherit;
   color: inherit;
+  border: 0;
+  background: none;
+  padding: 0;
 }
 h1,
 h2,
@@ -1321,10 +1327,12 @@ svg {
 .ramo-sub .maligna {
   background: #ffffff3d;
 }
+/* Cor cheia, sem opacidade: o "(câncer)" é texto pequeno sobre roxo e com
+   opacidade 0,85 ficava abaixo do contraste mínimo de 4,5:1. */
 .ramo-sub small {
   display: block;
   font-weight: 500;
-  opacity: 0.85;
+  color: #f3f0ff;
 }
 .chave {
   grid-column: 1 / 4;

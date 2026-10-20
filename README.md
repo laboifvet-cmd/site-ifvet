@@ -30,6 +30,7 @@ cd fonte
 npm install
 npm run dev        # abre o site em modo de desenvolvimento
 npm run build      # gera o site final em fonte/dist
+npm run verificar  # confere o site gerado (erros, acessibilidade, tamanho)
 npm run publicar   # gera e copia o site para a raiz do repositório
 ```
 

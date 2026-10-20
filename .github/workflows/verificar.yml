@@ -1,0 +1,40 @@
+# Em cada pull request, gera o site e roda a verificação automática
+# (fonte/scripts/verificar.mjs): erros no navegador, acessibilidade (axe),
+# rolagem horizontal, tamanho do JS/CSS. Não publica nada.
+name: Verificar site
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: fonte/package-lock.json
+
+      - name: Instalar dependências
+        working-directory: fonte
+        run: npm ci
+
+      - name: Gerar o site
+        working-directory: fonte
+        run: npm run build
+
+      - name: Instalar o Chromium do Playwright
+        working-directory: fonte
+        run: npx playwright install --with-deps chromium
+
+      - name: Verificar o site gerado
+        working-directory: fonte
+        run: npm run verificar
