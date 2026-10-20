@@ -1,6 +1,6 @@
 // Páginas do site e as informações de SEO (título, descrição, dados para o
 // Google) de cada uma.
-import { contato, exames } from "./dados.js";
+import { contato, exames, perguntas } from "./dados.js";
 
 export const SITE = "https://www.ifvet.com.br";
 
@@ -112,6 +112,20 @@ const laboratorio = {
   sameAs: [contato.instagram],
 };
 
+// Perguntas frequentes no formato que o Google lê (FAQPage). A página
+// inicial leva todas; cada página de exame, só as perguntas daquele exame.
+function perguntasFrequentes(lista, url) {
+  return {
+    "@type": "FAQPage",
+    "@id": `${url}#perguntas`,
+    mainEntity: lista.map((p) => ({
+      "@type": "Question",
+      name: p.pergunta,
+      acceptedAnswer: { "@type": "Answer", text: p.resposta },
+    })),
+  };
+}
+
 function escapar(texto) {
   return texto
     .replace(/&/g, "&amp;")
@@ -150,12 +164,16 @@ export function cabecaDaPagina(caminho) {
       url: `${SITE}/`,
       ogTitulo: inicio.ogTitulo,
       ogDescricao: inicio.ogDescricao,
-      jsonLd: { "@context": "https://schema.org", ...laboratorio },
+      jsonLd: {
+        "@context": "https://schema.org",
+        "@graph": [laboratorio, perguntasFrequentes(perguntas, `${SITE}/`)],
+      },
     });
   }
   const pagina = paginasExame.find((p) => p.caminho === caminho);
   if (pagina) {
     const exame = exames.find((e) => e.id === pagina.exame);
+    const doExame = perguntas.filter((p) => p.exames?.includes(exame.id));
     return montar({
       titulo: pagina.tituloSeo,
       descricao: pagina.descricao,
@@ -186,6 +204,9 @@ export function cabecaDaPagina(caminho) {
             ],
           },
           laboratorio,
+          ...(doExame.length
+            ? [perguntasFrequentes(doExame, `${SITE}${pagina.caminho}`)]
+            : []),
         ],
       },
     });
