@@ -36,7 +36,9 @@ export default function Cabecalho({ base = "" }) {
 
   return (
     <>
-      <div className="topbar">
+      {/* Região nomeada: assim o leitor de tela (e o axe) não vê conteúdo
+          solto fora dos marcos da página. */}
+      <div className="topbar" role="region" aria-label="Contato rápido">
         <div className="container topbar-inner">
           <span>
             <MapPin size={14} aria-hidden="true" /> {contato.areaAtendida}

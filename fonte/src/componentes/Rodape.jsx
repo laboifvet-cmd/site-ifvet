@@ -67,14 +67,18 @@ export default function Rodape({ base = "" }) {
   );
 }
 
+// O <aside> nomeado é um marco da página: sem ele o botão ficava como
+// conteúdo solto, fora de qualquer região (regra "region" do axe).
 export function WhatsFlutuante() {
   return (
-    <LinkExterno
-      href={contato.whatsapp}
-      className="whats-flutuante"
-      aria-label="Falar com o IFVET pelo WhatsApp"
-    >
-      <MessageCircle size={26} aria-hidden="true" />
-    </LinkExterno>
+    <aside aria-label="Atalho para o WhatsApp">
+      <LinkExterno
+        href={contato.whatsapp}
+        className="whats-flutuante"
+        aria-label="Falar com o IFVET pelo WhatsApp"
+      >
+        <MessageCircle size={26} aria-hidden="true" />
+      </LinkExterno>
+    </aside>
   );
 }
