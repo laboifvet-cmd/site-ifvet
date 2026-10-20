@@ -430,11 +430,12 @@
 
 /* ---------- Aviso de cookies (Google Analytics) ---------- */
 
+/* Abaixo do cabeçalho (z-index 50): no celular, o menu aberto cobre o aviso. */
 .aviso-cookies {
   position: fixed;
   left: 20px;
   bottom: 20px;
-  z-index: 60;
+  z-index: 45;
   width: min(420px, calc(100% - 40px));
   padding: 20px 22px;
   border-radius: 18px;
@@ -463,11 +464,21 @@
   text-decoration: underline;
   cursor: pointer;
 }
+/* No celular vira uma barra colada ao rodapé da tela, mais baixa, para não
+   cobrir os botões do topo da página. */
 @media (max-width: 700px) {
   .aviso-cookies {
-    left: 12px;
-    bottom: 12px;
-    width: calc(100% - 24px);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    padding: 14px 16px;
+    border-radius: 16px 16px 0 0;
+    border-width: 1px 0 0;
+    font-size: 14px;
+  }
+  .aviso-cookies-botoes {
+    margin-top: 10px;
   }
   .aviso-cookies .botao {
     flex: 1;
