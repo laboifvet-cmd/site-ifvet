@@ -31,13 +31,15 @@ export const google = { nota: "4,9", avaliacoes: 57 };
 // nada é carregado. O visitante só é contado se aceitar no aviso de cookies.
 export const analytics = { idGoogle: "G-33BNMT7Z0S" };
 
-// Tudo passa pela ponte laudos.ifvet.com.br (repositório "laudos"), que
-// repassa para o Apps Script. Se o endereço do Apps Script mudar, a troca é
-// só na ponte e no sistema; o site não precisa ser publicado de novo.
+// laudos.ifvet.com.br é a própria Área do Cliente, num Cloudflare Worker
+// (pasta ponte/ do repositório ifvet-appscript) que fala com o Apps Script por
+// trás. Se o endereço do Apps Script mudar, a troca é só no sistema; o site
+// não precisa ser publicado de novo.
 export const links = {
-  // O "?entrar=1" leva direto à tela de entrada. Sem ele, laudos.ifvet.com.br
-  // mostra a página do laboratório (endereço, contatos, responsável técnico),
-  // que é o que os filtros de segurança das empresas leem para classificar o site.
+  // A Área do Cliente já abre na tela de entrada; o "?entrar=1" ficou dos links
+  // antigos e não atrapalha. A página traz endereço, contatos e responsável
+  // técnico, que é o que os filtros de segurança das empresas leem para
+  // classificar o site.
   laudos: "https://laudos.ifvet.com.br/?entrar=1",
   requisicao: "https://laudos.ifvet.com.br/?f=requisicao",
   // Abre a Área do Cliente direto no cadastro da clínica.
