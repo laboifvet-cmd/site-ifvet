@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { analytics, contato, links, menu } from "../dados.js";
 import { LinkExterno } from "./comum.jsx";
 import { reabrirAvisoCookies } from "./Estatisticas.jsx";
+import Assinatura from "./Assinatura.jsx";
 
 export default function Rodape({ base = "" }) {
   return (
@@ -62,6 +63,7 @@ export default function Rodape({ base = "" }) {
             </button>
           )}
         </div>
+        <Assinatura />
       </div>
     </footer>
   );
