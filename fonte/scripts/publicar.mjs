@@ -10,7 +10,10 @@ const dist = path.join(fonte, "dist");
 const repo = path.resolve(fonte, "..");
 
 // Tudo na raiz é substituído pelo site novo, exceto estes itens.
+// .claude guarda as skills do Claude Code (.claude/skills): sem ele aqui,
+// a publicação apagaria a pasta a cada atualização do site.
 const preservar = new Set([
+  ".claude",
   ".git",
   ".github",
   ".gitignore",
