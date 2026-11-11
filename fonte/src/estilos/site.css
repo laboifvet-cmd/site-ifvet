@@ -1792,16 +1792,10 @@ svg {
 }
 .assinatura-selo {
   flex: none;
-  width: 28px;
-  height: 28px;
-  border: 1px solid currentColor;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: var(--serif);
-  font-size: 13px;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  display: block;
+  width: 26px;
+  height: 26px;
+  opacity: 0.85;
 }
 .assinatura-txt {
   display: grid;
@@ -1809,6 +1803,14 @@ svg {
   font-size: 12px;
   line-height: 1.35;
   min-width: 0;
+}
+.assinatura-marca {
+  font-weight: 600;
+}
+@media (max-width: 520px) {
+  .assinatura-por {
+    display: none;
+  }
 }
 .assinatura-txt a {
   color: inherit;
