@@ -12,7 +12,11 @@ permissions:
 
 jobs:
   verificar:
-    runs-on: ubuntu-latest
+    # Fixo no Ubuntu 24.04: o "ubuntu-latest" passou para o 26.04, onde o
+    # Playwright 1.56 ainda não instala o Chromium ("does not support
+    # chromium on ubuntu26.04"). Ao atualizar o Playwright para uma versão
+    # com suporte, dá para voltar ao "ubuntu-latest".
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v5

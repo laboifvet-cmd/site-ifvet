@@ -130,6 +130,18 @@ function Hero() {
   );
 }
 
+// "15 a 20 dias úteis" vira o número em destaque e a unidade menor ao lado:
+// assim todos os prazos cabem em uma linha e ficam alinhados entre si.
+function PrazoValor({ valor }) {
+  const partes = /^(.*?)\s+(dia útil|dias úteis)$/.exec(valor);
+  if (!partes) return <dd>{valor}</dd>;
+  return (
+    <dd>
+      {partes[1]} <span className="prazo-unidade">{partes[2]}</span>
+    </dd>
+  );
+}
+
 function Prazos() {
   return (
     <section className="prazos" aria-labelledby="titulo-prazos">
@@ -144,7 +156,7 @@ function Prazos() {
             {prazos.map((p) => (
               <div key={p.rotulo}>
                 <dt>{p.rotulo}</dt>
-                <dd>{p.valor}</dd>
+                <PrazoValor valor={p.valor} />
               </div>
             ))}
           </dl>
@@ -394,7 +406,7 @@ function AreaCliente() {
           <TituloSecao
             claro
             sobre="Área do Cliente"
-            titulo="Seu laudo, disponível on-line e com segurança."
+            titulo="Seu laudo, disponível online e com segurança."
             texto="Os laudos ficam guardados em ambiente protegido e só podem ser abertos por quem tem acesso ao caso."
           />
           <div className="acessos-tipos">
@@ -599,16 +611,30 @@ function Laboratorio() {
             <figcaption>Recepção do IFVET</figcaption>
           </figure>
           <div className="bento-info bento-endereco">
-            <MapPin size={22} aria-hidden="true" />
-            <h3>Endereço</h3>
-            <p>{contato.endereco}</p>
-            <LinkExterno href={contato.mapa} className="link-seta">
-              Abrir no Google Maps <ArrowUpRight size={16} aria-hidden="true" />
-            </LinkExterno>
-            <p className="bento-horario">
-              <Clock size={16} aria-hidden="true" /> Aberto de segunda a sábado.{" "}
-              <a href="#contato">Ver horários</a>
-            </p>
+            <div className="bento-bloco">
+              <MapPin size={22} aria-hidden="true" />
+              <h3>Endereço</h3>
+              <p>{contato.endereco}</p>
+              <LinkExterno href={contato.mapa} className="link-seta">
+                Abrir no Google Maps <ArrowUpRight size={16} aria-hidden="true" />
+              </LinkExterno>
+            </div>
+            <div className="bento-bloco">
+              <Clock size={22} aria-hidden="true" />
+              <h3>Atendimento</h3>
+              <p>Aberto de segunda a sábado.</p>
+              <a href="#contato" className="link-seta">
+                Ver horários <ArrowRight size={16} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="bento-bloco">
+              <Truck size={22} aria-hidden="true" />
+              <h3>Coleta de amostras</h3>
+              <p>Serviço volante em {contato.areaAtendida}.</p>
+              <LinkExterno href={contato.whatsapp} className="link-seta">
+                Combinar pelo WhatsApp <ArrowUpRight size={16} aria-hidden="true" />
+              </LinkExterno>
+            </div>
           </div>
           {fotos.map((foto) => (
             <figure key={foto.src} className="bento-foto">
