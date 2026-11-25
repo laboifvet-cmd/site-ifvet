@@ -20,27 +20,11 @@
   transform: translateX(3px);
 }
 
-/* Endereço ocupa a coluna inteira ao lado da foto da recepção; os horários
-   ficam só na seção de contato, sem repetir. */
+/* Endereço ocupa a coluna inteira ao lado da foto da recepção, em três
+   blocos (endereço, atendimento e coleta). A tabela de horários fica só na
+   seção de contato, sem repetir: aqui vai o resumo com o link. */
 .bento-endereco {
   grid-row: 1 / 3;
-}
-.bento-horario {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--linha);
-  font-size: 14px;
-}
-.bento-horario svg {
-  color: var(--roxo);
-}
-.bento-horario a {
-  color: var(--roxo);
-  font-weight: 700;
 }
 .bento-principal img {
   object-position: center 72%;
@@ -173,6 +157,10 @@
 .bloco-tutor {
   background: var(--lilas);
   border: 1px solid var(--linha);
+  /* Acompanha a rolagem: a coluna do veterinário é bem mais longa e
+     deixava um vazio grande ao lado. */
+  position: sticky;
+  top: calc(var(--cabecalho) + 24px);
 }
 .bloco-vet {
   background: #fff;
@@ -430,30 +418,42 @@
 
 /* ---------- Aviso de cookies (Google Analytics) ---------- */
 
-/* Abaixo do cabeçalho (z-index 50): no celular, o menu aberto cobre o aviso. */
+/* Abaixo do cabeçalho (z-index 50): no celular, o menu aberto cobre o aviso.
+   Barra baixa, centralizada no pé da tela: o cartão que ficava no canto
+   tapava os botões principais do topo da página na primeira visita. */
 .aviso-cookies {
   position: fixed;
-  left: 20px;
-  bottom: 20px;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
   z-index: 45;
-  width: min(420px, calc(100% - 40px));
-  padding: 20px 22px;
+  width: min(900px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 10px 12px 10px 22px;
   border-radius: 18px;
   background: #fff;
   color: var(--tinta);
   border: 1px solid var(--linha);
   box-shadow: var(--sombra-forte);
-  font-size: 15px;
+  font-size: 14.5px;
+  line-height: 1.45;
+}
+.aviso-cookies p {
+  flex: 1;
+  min-width: 0;
 }
 .aviso-cookies-botoes {
   display: flex;
-  gap: 10px;
-  margin-top: 14px;
+  gap: 8px;
+  flex: none;
 }
 .aviso-cookies .botao {
   width: auto;
-  min-height: 42px;
-  padding: 8px 20px;
+  min-height: 40px;
+  padding: 8px 18px;
+  font-size: 14.5px;
 }
 .rodape-cookies {
   background: none;
@@ -464,24 +464,43 @@
   text-decoration: underline;
   cursor: pointer;
 }
-/* No celular vira uma barra colada ao rodapé da tela, mais baixa, para não
-   cobrir os botões do topo da página. */
+/* Em tela larga o aviso fica à direita, ao lado do botão do WhatsApp: ali
+   o topo da página não tem botão nenhum embaixo dele. */
+@media (min-width: 961px) {
+  .aviso-cookies {
+    left: auto;
+    right: 96px;
+    bottom: 20px;
+    transform: none;
+    width: min(600px, 46vw);
+  }
+}
+/* Em tablet o aviso é centralizado; o botão do WhatsApp sobe enquanto
+   o aviso está na tela, para um não ficar em cima do outro. */
+@media (min-width: 701px) and (max-width: 960px) {
+  body:has(.aviso-cookies) .whats-flutuante {
+    bottom: 96px;
+  }
+}
+/* No celular vira uma barra colada ao pé da tela, com o texto em cima e os
+   dois botões lado a lado. */
 @media (max-width: 700px) {
   .aviso-cookies {
     left: 0;
     right: 0;
     bottom: 0;
+    transform: none;
     width: 100%;
-    padding: 14px 16px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 16px;
     border-radius: 16px 16px 0 0;
     border-width: 1px 0 0;
-    font-size: 14px;
-  }
-  .aviso-cookies-botoes {
-    margin-top: 10px;
+    font-size: 13.5px;
   }
   .aviso-cookies .botao {
     flex: 1;
+    min-height: 38px;
   }
 }
 
@@ -545,4 +564,57 @@
   color: var(--roxo);
   font-weight: 600;
   text-decoration: underline;
+}
+
+/* ---------- Animações ligadas à rolagem (CSS nativo, sem biblioteca) ----------
+   Só entram em navegador que entende `animation-timeline` e para quem não
+   pediu "reduzir movimento"; nos demais, o site fica como sempre foi. São
+   discretas de propósito: uma linha de progresso de leitura sob o cabeçalho
+   e um leve deslocamento das fotos enquanto a página rola. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: scroll()) {
+    .cabecalho::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--roxo), var(--menta));
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      animation: progresso-leitura linear both;
+      animation-timeline: scroll(root block);
+    }
+    .hero-foto img {
+      scale: 1.12;
+      animation: foto-desliza linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    .bento-foto img {
+      scale: 1.1;
+      animation: foto-desliza linear both;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    /* O zoom ao passar o mouse usa `transform`; o deslocamento usa
+       `translate`, então os dois convivem. */
+    .bento-foto:hover img {
+      transform: scale(1.03);
+    }
+  }
+}
+@keyframes progresso-leitura {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes foto-desliza {
+  from {
+    translate: 0 -4%;
+  }
+  to {
+    translate: 0 4%;
+  }
 }

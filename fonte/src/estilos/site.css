@@ -328,6 +328,8 @@ svg {
     border-color 0.25s;
 }
 .cabecalho.rolou {
+  /* Mais opaco depois de rolar: o texto da página não aparece por trás do menu. */
+  background: #fffffff2;
   border-color: var(--linha);
   box-shadow: 0 6px 24px #1e105a0f;
 }
@@ -699,6 +701,12 @@ svg {
   line-height: 1.2;
   font-variant-numeric: tabular-nums;
 }
+.prazo-unidade {
+  font-family: var(--sans, inherit);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+}
 .exames-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -815,7 +823,8 @@ svg {
   position: absolute;
   top: 20px;
   left: 20px;
-  right: 12%;
+  /* Termina no centro do último número (4 colunas com 20px de espaço). */
+  right: calc(25% - 35px);
   height: 2px;
   background: repeating-linear-gradient(
     90deg,
@@ -1447,16 +1456,31 @@ svg {
   grid-column: 3;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 6px;
+  justify-content: space-between;
+  gap: 20px;
   padding: 28px;
   border-radius: var(--raio);
   background: var(--lilas);
   border: 1px solid var(--linha);
 }
-.bento-info > svg {
+.bento-bloco {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 12px;
+  row-gap: 4px;
+  align-items: start;
+}
+.bento-bloco + .bento-bloco {
+  padding-top: 20px;
+  border-top: 1px solid var(--linha);
+}
+.bento-bloco > svg {
   color: var(--roxo);
-  margin-bottom: 6px;
+  grid-row: 1 / span 4;
+  margin-top: 1px;
+}
+.bento-bloco > :not(svg) {
+  grid-column: 2;
 }
 .bento-info h3 {
   font-size: 17px;
@@ -1466,9 +1490,9 @@ svg {
   font-size: 15px;
 }
 .bento-info .link-seta {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 14px;
-  align-self: flex-start;
+  justify-self: start;
 }
 .horarios {
   display: grid;
@@ -2091,6 +2115,12 @@ svg {
   }
   .prazos-lista dd {
     font-size: 21px;
+  }
+  /* Em duas colunas estreitas, a unidade vai para a linha de baixo em
+     todos os prazos, em vez de quebrar só nos mais compridos. */
+  .prazo-unidade {
+    display: block;
+    font-size: 13px;
   }
   .exames-grid,
   .quem-recebe-grid,
